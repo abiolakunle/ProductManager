@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Product Manager</string>
+    <string name="products">Products</string>
+    <string name="products_properties">Product properties</string>
+    <string name="add_property">Add Property</string>
+    <string name="name">Name</string>
+    <string name="value">Value</string>
+    <string name="description">Description</string>
+    <string name="price">Price</string>
+    <string name="add_product">Add Product</string>
+</resources>
