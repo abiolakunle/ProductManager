@@ -10,10 +10,10 @@ public class Product implements Serializable {
     private String name;
     private String description;
     private float  price;
-    private List<ProductProperty> properties;
+    private List<ProductPropertyReference> propertyReferences;
 
     public  Product(){
-        properties = new ArrayList<>();
+        propertyReferences = new ArrayList<>();
     }
 
     public String getName() {
@@ -40,15 +40,15 @@ public class Product implements Serializable {
         this.price = price;
     }
 
-    public void addProperty(ProductProperty newProperty){
-        properties.add(newProperty);
+    public void addProperty(ProductPropertyReference newProperty) {
+        propertyReferences.add(newProperty);
     }
 
     public void removeProperty(ProductProperty property){
-        properties.remove(property);
+        propertyReferences.remove(property);
     }
 
-    public List<ProductProperty> getProperties() {
-        return properties;
+    public List<ProductPropertyReference> getPropertyReferences() {
+        return propertyReferences;
     }
 }

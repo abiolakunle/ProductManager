@@ -2,17 +2,23 @@ package com.abiolasoft.productmanager.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.abiolasoft.productmanager.R;
+import com.abiolasoft.productmanager.Services.ProductPropertyService;
 import com.abiolasoft.productmanager.models.ProductProperty;
+import com.abiolasoft.productmanager.models.PropertyValue;
 
 public class AddProductPropertyActivity extends BaseActivity {
 
     private TextView propNameEtv, propValueEtv;
-    private Button addPropBtn;
+    private Button addPropBtn, addPropValueBtn;
+
+    private ProductProperty property;
+    private ProductPropertyService propertyService;
 
 
     @Override
@@ -21,16 +27,31 @@ public class AddProductPropertyActivity extends BaseActivity {
         setContentView(R.layout.activity_add_product_property);
         initializeViews();
 
+        property = new ProductProperty();
+        propertyService = new ProductPropertyService(this);
+        Log.d("ABIOLZZ", propertyService.getAll().toString());
+
+        addPropValueBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String propValue = propValueEtv.getText().toString();
+
+                PropertyValue newValue = new PropertyValue();
+                newValue.setValue(propValue);
+
+                property.addValue(newValue);
+                propValueEtv.setText("");
+            }
+        });
+
         addPropBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String name = propNameEtv.getText().toString();
-                String value = propValueEtv.getText().toString();
-
-                addProperty(name, value);
+                addProperty(name);
 
                 Intent propIntent = new Intent(AddProductPropertyActivity.this, ProductPropertyActivity.class);
-                baseStartActivity(propIntent);
+                startActivity(propIntent);
             }
         });
     }
@@ -39,14 +60,13 @@ public class AddProductPropertyActivity extends BaseActivity {
         propNameEtv = findViewById(R.id.prop_name_etv);
         propValueEtv = findViewById(R.id.prop_value_etv);
         addPropBtn = findViewById(R.id.add_prop_btn);
+        addPropValueBtn = findViewById(R.id.add_prop_value_btn);
     }
 
-    private void addProperty(String name, String value){
-
-        ProductProperty property = new ProductProperty();
+    private void addProperty(String name) {
         property.setName(name);
-        property.setValue(value);
-
         propertyService.add(property);
+
+        Log.d("ABIOLZZ", propertyService.getAll().toString());
     }
 }

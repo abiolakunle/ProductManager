@@ -1,28 +1,32 @@
 package com.abiolasoft.productmanager.Services;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
-public class RepositoryService<T> implements Serializable {
-    private List<T> items;
+public class RepositoryService<T> {
 
-    public RepositoryService(){
-        items = new ArrayList<T>();
+    protected SharedPrefService<List<T>> persistence;
+
+    public RepositoryService() {
+
     }
 
-    public void add(T newProduct){
-        items.add(newProduct);
+    public void add(T newItem) {
+        List<T> list = persistence.getObject();
+        list.add(newItem);
+        persistence.setObject(list);
     }
 
-    public void remove(T product){
-        items.remove(product);
+    public void remove(T item) {
+        List<T> list = persistence.getObject();
+        list.add(item);
+        persistence.setObject(list);
+
     }
     public List<T> getAll(){
-        return items;
+        return persistence.getObject();
     }
 
     public T get(int index){
-        return items.get(index);
+        return persistence.getObject().get(index);
     }
 }

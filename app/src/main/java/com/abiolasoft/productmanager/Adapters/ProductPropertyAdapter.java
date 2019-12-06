@@ -34,8 +34,9 @@ public class ProductPropertyAdapter extends RecyclerView.Adapter<ProductProperty
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.nameTv.setText(properties.get(position).getName());
-        holder.valueTv.setText(properties.get(position).getValue());
+        holder.valueTv.setText(properties.get(position).getValues().toString());
     }
+
 
     @Override
     public int getItemCount() {

@@ -29,8 +29,8 @@ public class MainActivity extends BaseActivity {
         prodPropBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent prodProdpIntent = new Intent(MainActivity.this, AddProductPropertyActivity.class);
-                startActivity(prodProdpIntent);
+                Intent prodProdIntent = new Intent(MainActivity.this, AddProductPropertyActivity.class);
+                startActivity(prodProdIntent);
             }
         });
     }
