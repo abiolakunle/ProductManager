@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Product implements Serializable {
 
     private String name;
@@ -12,7 +13,7 @@ public class Product implements Serializable {
     private List<ProductProperty> properties;
 
     public  Product(){
-        properties = new ArrayList<ProductProperty>();
+        properties = new ArrayList<>();
     }
 
     public String getName() {
