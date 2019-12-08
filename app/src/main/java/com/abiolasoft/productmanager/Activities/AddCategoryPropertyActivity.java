@@ -2,34 +2,32 @@ package com.abiolasoft.productmanager.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.abiolasoft.productmanager.R;
-import com.abiolasoft.productmanager.Services.ProductPropertyService;
-import com.abiolasoft.productmanager.models.ProductProperty;
+import com.abiolasoft.productmanager.Services.CategoryPropertyService;
+import com.abiolasoft.productmanager.models.CategoryProperty;
 import com.abiolasoft.productmanager.models.PropertyValue;
 
-public class AddProductPropertyActivity extends BaseActivity {
+public class AddCategoryPropertyActivity extends BaseActivity {
 
     private TextView propNameEtv, propValueEtv;
     private Button addPropBtn, addPropValueBtn;
 
-    private ProductProperty property;
-    private ProductPropertyService propertyService;
+    private CategoryProperty property;
+    private CategoryPropertyService propertyService;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_product_property);
+        setContentView(R.layout.activity_add_category_property);
         initializeViews();
 
-        property = new ProductProperty();
-        propertyService = new ProductPropertyService(this);
-        Log.d("ABIOLZZ", propertyService.getAll().toString());
+        property = new CategoryProperty();
+        propertyService = new CategoryPropertyService(this);
 
         addPropValueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +48,7 @@ public class AddProductPropertyActivity extends BaseActivity {
                 String name = propNameEtv.getText().toString();
                 addProperty(name);
 
-                Intent propIntent = new Intent(AddProductPropertyActivity.this, ProductPropertyActivity.class);
+                Intent propIntent = new Intent(AddCategoryPropertyActivity.this, CategoryPropertyActivity.class);
                 startActivity(propIntent);
             }
         });
@@ -66,7 +64,5 @@ public class AddProductPropertyActivity extends BaseActivity {
     private void addProperty(String name) {
         property.setName(name);
         propertyService.add(property);
-
-        Log.d("ABIOLZZ", propertyService.getAll().toString());
     }
 }

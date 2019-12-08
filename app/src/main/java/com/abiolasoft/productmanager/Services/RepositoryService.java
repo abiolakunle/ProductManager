@@ -2,7 +2,7 @@ package com.abiolasoft.productmanager.Services;
 
 import java.util.List;
 
-public class RepositoryService<T> {
+public abstract class RepositoryService<T> {
 
     protected SharedPrefService<List<T>> persistence;
 
@@ -12,6 +12,7 @@ public class RepositoryService<T> {
 
     public void add(T newItem) {
         List<T> list = persistence.getObject();
+        setId(newItem);
         list.add(newItem);
         persistence.setObject(list);
     }
@@ -22,6 +23,9 @@ public class RepositoryService<T> {
         persistence.setObject(list);
 
     }
+
+    public abstract void setId(T item);
+
     public List<T> getAll(){
         return persistence.getObject();
     }

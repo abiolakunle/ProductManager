@@ -1,15 +1,15 @@
 package com.abiolasoft.productmanager.models;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductProperty implements Serializable {
+public class CategoryProperty {
 
+    private int id;
     private String name;
     private List<PropertyValue> values;
 
-    public ProductProperty() {
+    public CategoryProperty() {
         values = new ArrayList<>();
     }
 
@@ -29,4 +29,11 @@ public class ProductProperty implements Serializable {
         return values;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

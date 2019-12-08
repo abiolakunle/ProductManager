@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.AddProductPropertyActivity">
+    tools:context=".Activities.AddCategoryPropertyActivity">
 
     <EditText
         android:id="@+id/prop_name_etv"

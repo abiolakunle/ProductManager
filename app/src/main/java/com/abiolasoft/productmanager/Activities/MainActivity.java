@@ -9,7 +9,7 @@ import com.abiolasoft.productmanager.R;
 
 public class MainActivity extends BaseActivity {
 
-    private Button prodBtn, prodPropBtn;
+    private Button prodBtn, catPropBtn, catBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,22 +21,33 @@ public class MainActivity extends BaseActivity {
         prodBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent prodIntent = new Intent(MainActivity.this, AddProductActivity.class);
+                Intent prodIntent = new Intent(MainActivity.this, ProductActivity.class);
                 startActivity(prodIntent);
             }
         });
 
-        prodPropBtn.setOnClickListener(new View.OnClickListener() {
+        catPropBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent prodProdIntent = new Intent(MainActivity.this, AddProductPropertyActivity.class);
+                Intent prodProdIntent = new Intent(MainActivity.this, CategoryPropertyActivity.class);
                 startActivity(prodProdIntent);
             }
         });
+
+        catBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent catIntent = new Intent(MainActivity.this, CategoryActivity.class);
+                startActivity(catIntent);
+            }
+        });
+
+
     }
 
     private void initializeViews(){
         prodBtn = findViewById(R.id.products_btn);
-        prodPropBtn = findViewById(R.id.products_property_btn);
+        catPropBtn = findViewById(R.id.category_property_btn);
+        catBtn = findViewById(R.id.category_btn);
     }
 }

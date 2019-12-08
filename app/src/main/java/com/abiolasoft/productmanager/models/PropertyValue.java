@@ -1,8 +1,6 @@
 package com.abiolasoft.productmanager.models;
 
-import java.io.Serializable;
-
-public class PropertyValue implements Serializable {
+public class PropertyValue {
 
     private static int count;
     private int id;

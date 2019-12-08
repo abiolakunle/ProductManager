@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class BaseActivity extends AppCompatActivity {
 
 //    protected ProductService productService;
-//    protected ProductPropertyService propertyService;
+//    protected CategoryPropertyService propertyService;
 //    protected final String PROD_SERVICE = "PROD_SERVICE";
 //    protected final String PROP_SERVICE = "PROP_SERVICE";
 
@@ -19,7 +19,7 @@ public class BaseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_base);
 
 //        productService = new ProductService();
-//        propertyService = new ProductPropertyService();
+//        propertyService = new CategoryPropertyService();
     }
 
 //    protected void baseStartActivity(Intent intent){

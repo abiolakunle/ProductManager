@@ -16,4 +16,10 @@ public class ProductService extends RepositoryService<Product> {
         if (persistence.getObject() == null)
             persistence.setObject(new ArrayList<Product>());
     }
+
+    @Override
+    public void setId(Product item) {
+        List<Product> products = persistence.getObject();
+        item.setId(products.size() + 1);
+    }
 }
